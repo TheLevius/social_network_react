@@ -1,0 +1,54 @@
+._containerGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 1.6rem;
+    align-items: center;
+    padding: 0.8rem 2.4rem 0.8rem 2rem;
+    border-left: 0.4rem solid rgba(38, 165, 220, 0);
+}
+a, a:visited {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+a:hover span {
+    text-decoration: underline;
+    color: rgba(38, 165, 220, 1);
+}
+.active span{
+    background-color: rgba(38, 165, 220, 0.2);
+    border-color: rgba(38, 165, 220, 1);
+    color: #fb140c;
+    border-left: 0.4rem solid rgba(38, 165, 220, 1);
+}
+
+._avatarBox{
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    width: 100%;
+    margin: auto;
+    border-radius: 50%;
+    text-align: center;
+    background-color: rgba(38, 165, 220, 1);
+    overflow: hidden;
+}
+
+._avatarImg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.dialogAva {
+    max-width: 100%;
+    height: auto;
+    padding: 0.2rem;
+}
+
+.usernameBox {
+    grid-column: 2 / span 3;
+    grid-row: 1 / span 1;
+    font: normal normal 1.6rem/1 Roboto, Helvetica, Arial, sans-serif;
+    color: rgba(0, 0, 0, 0.6);
+    letter-spacing: 0.05rem;
+}

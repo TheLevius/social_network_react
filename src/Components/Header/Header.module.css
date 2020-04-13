@@ -1,0 +1,17 @@
+._wrapper {
+    width: 100%;
+    padding: 0.8rem 0;
+    background-color: #54181A;
+    overflow: hidden;
+
+}
+
+._container {
+    max-width: 96rem;
+    margin: 0 auto;
+    padding: 0 0.8rem;
+    font-size: 0;
+    line-height: 0;
+    text-align: left;
+    overflow: inherit;
+}

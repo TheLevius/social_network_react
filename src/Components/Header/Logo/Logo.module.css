@@ -1,0 +1,28 @@
+
+._homelink {
+    min-width: 12rem;
+    margin: 0 1.6rem;
+    display: inline-block;
+    font: normal normal 0/0 Roboto, "Helvetica", "Arial", sans-serif;
+    color: rgba(255, 255, 255, 1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+}
+
+._homelink > img {
+    max-width: 3.2rem;
+    height: auto;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+._homelink > span {
+    padding-left: 0.8rem;
+    display: inline-block;
+    font-size: 2rem;
+    line-height: 2.7rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    vertical-align: bottom;
+}
