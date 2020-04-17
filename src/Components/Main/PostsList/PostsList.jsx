@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./Posts.module.css";
-import DialogItem from "../Dialogs/DialogItem/DialogItem";
+import PublishPost from "./PublishPost/PublishPost";
+import PostedCard from "./PostedCard/PostedCard";
 
 const Posts = () => {
     return (
       <div className="Posts block">
           <div className={styles._container}>
-              <h6 className={styles._header}>Написать пост</h6>
-
+              <PublishPost/>
+              <PostedCard/>
           </div>
       </div>
     );
-
 }
 
 export default Posts;
