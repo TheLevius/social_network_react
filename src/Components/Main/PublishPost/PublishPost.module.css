@@ -1,6 +1,7 @@
 ._container {
     grid-column: span 6;
     grid-row: span 1;
+    margin-bottom: 1.6rem;
     border-radius: 0.4rem;
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 0 2px 1px rgba(150, 150, 150, 0.2);
@@ -30,8 +31,9 @@
     grid-row: span 1;
     min-width: 100%;
     max-width: 100%;
-    min-height: 3.2rem;
+    min-height: 5.2rem;
     max-height: 20rem;
+    height: 5.2rem;
     padding: 1.6rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 240, 0, 0.1);
