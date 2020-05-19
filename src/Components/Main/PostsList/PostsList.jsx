@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Posts.module.css";
+import styles from "./PostsList.module.css";
 import PublishPost from "./PublishPost/PublishPost";
 import PostedCard from "./PostedCard/PostedCard";
 

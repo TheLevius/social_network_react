@@ -7,8 +7,7 @@ const Chat = (props) => {
         <div className="Chat block">
             <div className={styles._container}>
                 <h6 className={styles._header}>Чат</h6>
-
-                <Log />
+                <Log messagesPage={props.messagesPage} store={props.store} dispatch={props.dispatch}/>
             </div>
         </div>
     );
