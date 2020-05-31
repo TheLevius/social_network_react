@@ -1,34 +1,37 @@
 import React from "react";
 import styles from "./PublishPost.module.css";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+import PostedCard from "./PostedCard/PostedCard";
 
 const PublishPost = (props) => {
 
+    let posts = props.postData.map( el => <PostedCard message={el.message} likesCount={el.likesCount}/>);
+
     let newPostElement = React.createRef();
 
-    let addPost = () => {
-        props.dispatch(addPostActionCreator());
+    let onAddPost = () => {
+        props.addPost();
     };
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        let action = updateNewPostTextActionCreator(text);
-        props.dispatch(action);
+        props.updateNewPostText(text);
     };
     return (
         <div className="PublishPost block">
             <div className={styles._container}>
-                <h6 className={styles._header}>Опубликовать пост</h6>
-                <div className={styles._containerGrid}>
+                <div className={styles._box}>
+                    <h6 className={styles._header}>Опубликовать пост</h6>
+                    <div className={styles._containerGrid}>
                     <textarea className={styles._textareaCell}
                               placeholder="Написать..."
                               ref={newPostElement}
                               value={props.newPostText}
                               onChange={onPostChange}>
-
                     </textarea>
-                    <button type="submit" className={styles._buttonPub} onClick={addPost}>Написать</button>
+                        <button type="submit" className={styles._buttonPub} onClick={onAddPost}>Написать</button>
+                    </div>
                 </div>
+                {posts}
             </div>
         </div>
     );

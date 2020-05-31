@@ -4,9 +4,8 @@ import styles from './Main.module.css';
 import Navigation from "./Navigation/Navigation";
 import UserCard from "./UserCard/UserCard";
 import Dialogs from "./Dialogs/Dialogs";
-import Chat from "./Chat/Chat";
-import PostsList from "./PostsList/PostsList";
-import PublishPost from "./PostsList/PublishPost/PublishPost";
+import ChatContainer from "./Chat/ChatContainer";
+import PublishPostContainer from "./PublishPost/PublishPostContainer";
 
 
 const Main = (props) => {
@@ -24,9 +23,13 @@ const Main = (props) => {
                         <Route path='/dialogs' render={ () => <Dialogs store={props.store} dialogsData={props.state.messagesPage.dialogsData}/> } />
                     </div>
                     <div className={styles._WideColumn}>
-                        <Route path='/dialogs' render={ () => <Chat messagesPage={props.state.messagesPage} store={props.store} dispatch={props.dispatch}/> } />
-                        <Route path='/profile' render={ () => <PublishPost postData={props.state.profilePage.postData} newPostText={props.state.profilePage.newPostText} dispatch={props.dispatch}/>}/>
-                        <Route path='/profile' render={ () => <PostsList postData={props.state.profilePage.postData}/> } />
+                        <Route path='/dialogs' render={ () => <ChatContainer messagesPage={props.state.messagesPage} store={props.store} dispatch={props.dispatch}/> } />
+                        <Route path='/profile' render={ () => <PublishPostContainer
+                            postData={props.state.profilePage.postData}
+                            newPostText={props.state.profilePage.newPostText}
+                            dispatch={props.dispatch}
+                            store={props.store}
+                        />}/>
                     </div>
                 </div>
             </div>

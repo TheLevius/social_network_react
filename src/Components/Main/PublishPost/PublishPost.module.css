@@ -1,10 +1,13 @@
 ._container {
     grid-column: span 6;
     grid-row: span 1;
+}
+
+._box {
     margin-bottom: 1.6rem;
     border-radius: 0.4rem;
-    background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 0 2px 1px rgba(150, 150, 150, 0.2);
+    background-color: rgba(255, 255, 255, 1);
     overflow: hidden;
 }
 
@@ -22,6 +25,7 @@
     grid-template-columns: repeat(8, 1fr);
     grid-column-gap: 1.2rem;
     grid-row-gap: 1.6rem;
+    margin-bottom: 1.6rem;
     padding: 2.4rem;
 }
 

@@ -59,15 +59,31 @@ html, body, .container {
 }
 
 html {
-  font: normal 10px/10px sans-serif;
+  font: normal 10px/10px Roboto, Helvetica, Arial, sans-serif;
 }
 
 .block_inline {
   display: inline-block;
 }
 
+.block {
+  display: block;
+}
+
 .grid {
   display: grid;
+}
+
+h6 {
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 500;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 .App {

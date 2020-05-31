@@ -11,7 +11,7 @@ const UserCard = () => {
                 <div className={styles._AvatarCol}>
                     <AvatarPic/>
                 </div>
-                <div className={styles._initialCol}>
+                <div className={styles._initialsCol}>
                     <Initials/>
                 </div>
             </div>

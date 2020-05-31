@@ -1,15 +1,18 @@
 import React from "react";
 import styles from "./PostedCard.module.css";
 
-const PostedCard = () => {
+const PostedCard = (props) => {
     return (
         <div className="PostedCard block">
             <div className={styles._container}>
                 <h6 className={styles._header}>Пост</h6>
                 <div className={styles._containerGrid}>
                     <p className={styles._postParagraph}>
-                        Лорем ипсум долор сит амет
+                        {props.message}
                     </p>
+                    <div className={styles._postLikesCount}>
+                        <span>Likes: {props.likesCount}</span>
+                    </div>
                 </div>
             </div>
         </div>

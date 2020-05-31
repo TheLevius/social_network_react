@@ -13,3 +13,68 @@
     color: rgba(255, 255, 255, 1);
     background-color: rgba(38, 165, 220, 1);
 }
+
+._containerGrid {
+    padding: 0.6rem 2.4rem;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-column-gap: 1.2rem;
+    grid-row-gap: 0.8rem;
+    align-items: end;
+    overflow: hidden;
+}
+
+._selfAvaCell, ._userAvaCell {
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0.2rem;
+    border-radius: 50%;
+    text-align: center;
+    background-color: rgba(27, 195, 255, 1);
+    overflow: hidden;
+}
+
+._selfAvaCell {
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+._userAvaCell {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+._avaImg {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+._userMsgCell, ._selfMsgCell {
+    font: normal normal 1.4rem/1.6rem Roboto, Helvetiva, Arial, sans-serif;
+}
+
+._userMsgCell {
+    grid-column: 2 / span 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: left;
+    padding: 1.2rem;
+    background-color: rgba(93, 255, 124, 0.2);
+    border-radius: 0.4rem 0.4rem 0.4rem 0;
+}
+
+._selfMsgCell {
+    grid-column: 3 / span 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: right;
+    padding: 1.2rem;
+    text-align: right;
+    background-color: rgba(0, 154, 255, 0.2);
+    border-radius: 0.4rem 0.4rem 0 0.4rem;
+}

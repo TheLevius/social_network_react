@@ -18,7 +18,7 @@
     grid-row: 1 / span 2;
 }
 
-._initialCol {
+._initialsCol {
     grid-column: 5 / span 4;
     grid-row: 2 / 3;
 }

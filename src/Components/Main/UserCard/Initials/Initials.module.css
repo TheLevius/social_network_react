@@ -1,5 +1,7 @@
 ._column {
     margin: 0 0 2rem 0;
+    color: rgba(255, 255, 255, 1);
+    text-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);
 }
 
 ._username {
@@ -12,7 +14,8 @@
     width: 100%;
     height: 0.2rem;
     border: 0;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);
 }
 
 ._statusBox {
