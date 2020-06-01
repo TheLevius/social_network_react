@@ -18,6 +18,7 @@ const Main = (props) => {
                     </div>
                     <div className={styles._UserCardColumn}>
                         <Route path='/profile' component={UserCard}/>
+                        <Route path='/users' render={() =><div>users</div>} />
                     </div>
                     <div className={styles._NarrowColumn}>
                         <Route path='/dialogs' render={ () => <Dialogs store={props.store} dialogsData={props.state.messagesPage.dialogsData}/> } />

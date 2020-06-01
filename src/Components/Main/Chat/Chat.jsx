@@ -39,9 +39,7 @@ const Chat = (props) => {
                 {message}
                 <div className={styles._containerGrid}>
                     <div className={styles.msgInputBox}>
-                        <textarea value={newMsgBody} onChange={onNewMsgChange} placeholder="Написать сообщение...">
-
-                        </textarea>
+                        <textarea value={newMsgBody} onChange={onNewMsgChange} placeholder="Написать сообщение..." />
                     </div>
                     <div className={styles.btnSendMsgBox}>
                         <button className={styles.btnSendMsg} onClick={onSendMsgClick}>Send</button>

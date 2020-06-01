@@ -16,7 +16,9 @@ const PublishPost = (props) => {
         let text = newPostElement.current.value;
         props.updateNewPostText(text);
     };
+
     return (
+
         <div className="PublishPost block">
             <div className={styles._container}>
                 <div className={styles._box}>
@@ -26,8 +28,8 @@ const PublishPost = (props) => {
                               placeholder="Написать..."
                               ref={newPostElement}
                               value={props.newPostText}
-                              onChange={onPostChange}>
-                    </textarea>
+                              onChange={onPostChange} />
+
                         <button type="submit" className={styles._buttonPub} onClick={onAddPost}>Написать</button>
                     </div>
                 </div>
