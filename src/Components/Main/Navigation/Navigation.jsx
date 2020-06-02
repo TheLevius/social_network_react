@@ -16,6 +16,10 @@ const Navigation = () => {
                     <div className={styles._notifyCell}><span>99</span></div>
                 </li>
                 <li className={styles._item}>
+                    <NavLink to='/users' className={styles._itemLink} activeClassName={styles.activeLink}><span>Users</span></NavLink>
+                    <div className={styles._notifyCell}><span>99</span></div>
+                </li>
+                <li className={styles._item}>
                     <a className={styles._itemLink}><span>News</span></a>
                     <div className={styles._notifyCell}><span>99</span></div>
                 </li>
