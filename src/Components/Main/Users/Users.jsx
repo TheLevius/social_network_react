@@ -8,7 +8,6 @@ const Users = (props) => {
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
-        debugger
     }
 
     return <div className="Users block">
