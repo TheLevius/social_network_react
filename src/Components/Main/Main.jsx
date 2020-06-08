@@ -1,14 +1,12 @@
 import React from 'react';
-import {Route} from "react-router-dom";
+import {Route} from 'react-router-dom';
 import styles from './Main.module.css';
 import Navigation from "./Navigation/Navigation";
-
 import Dialogs from "./Dialogs/Dialogs";
 import ChatContainer from "./Chat/ChatContainer";
 import PublishPostContainer from "./PublishPost/PublishPostContainer";
 import UsersContainer from "./Users/UsersContainer";
 import UserCardContainer from "./UserCard/UserCardContainer";
-
 
 const Main = (props) => {
     return (
@@ -19,7 +17,7 @@ const Main = (props) => {
                         <Navigation/>
                     </div>
                     <div className={styles._UserCardColumn}>
-                        <Route path='/profile' component={UserCardContainer}/>
+                        <Route path='/profile/:userId?' component={UserCardContainer}/>
                         <Route path='/users' render={() => <UsersContainer/>} />
                     </div>
                     <div className={styles._NarrowColumn}>
