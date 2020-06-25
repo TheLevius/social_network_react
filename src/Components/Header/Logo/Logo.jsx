@@ -4,7 +4,7 @@ import Logosvg from '../../../img/svg/logotype.svg';
 
 const Logo = () => {
     return (
-        <div className="Logo block block_inline">
+        <div className="Logo block_inline">
             <a className={styles._homelink} href="#homelink" id="homelink">
                 <img src={Logosvg} alt="homelink"/>
                 <span>Petfans</span>

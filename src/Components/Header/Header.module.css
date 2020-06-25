@@ -15,3 +15,16 @@
     text-align: left;
     overflow: inherit;
 }
+
+._loginBox {
+    padding: 0.8rem;
+    float: right;
+    font-size: 1.6rem;
+    line-height: 1;
+    font-weight: 500;
+    color: #fff;
+
+}
+._loginBox a {
+    color: #fff;
+}
