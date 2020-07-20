@@ -12,7 +12,7 @@ const UserCard = (props) => {
                     <AvatarPic profile={props.profile}/>
                 </div>
                 <div className={styles._initialsCol}>
-                    <Initials/>
+                    <Initials status={props.status} updateStatus={props.updateStatus} />
                 </div>
             </div>
         </div>

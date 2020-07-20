@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./Initials.module.css";
+import UserStatus from "./UserStatus/UserStatus";
 
-const Initials = () => {
+const Initials = (props) => {
     return (
       <div className="Initials block">
           <div className={styles._column}>
@@ -10,9 +11,7 @@ const Initials = () => {
               </div>
               <hr className={styles._sepLine} />
               <div className={styles._statusBox}>
-                  <span className={styles._statusString}>
-                      Junior Front-end developer (в мечтах)<br />Google Material Design UI React+Redux
-                  </span>
+                  <UserStatus status={props.status} updateStatus={props.updateStatus}/>
               </div>
           </div>
       </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Chat.module.css";
 import userpic from "./../../../img/jpg/avatar.jpg";
+import {Redirect} from "react-router-dom";
+import AddMsgFormRedux from "./AddMsgForm/AddMsgForm";
 
 const Chat = (props) => {
     let state = props.messagesPage;
@@ -22,29 +24,18 @@ const Chat = (props) => {
         );
     });
 
-    let newMsgBody = state.newMessageBody;
-
-    let onSendMsgClick = () => {
-        props.sendMessage();
+    let addNewMsg = (values) => {
+        props.sendMessage(values.newMsgBody);
     };
 
-    let onNewMsgChange = (e) => {
-        let body = e.target.value;
-        props.updateNewMsgBody(body);
-    };
+    if(!props.isAuth) return <Redirect to={'/login'}/>;
+
     return (
         <div className="Chat block">
             <div className={styles._container}>
                 <h6 className={styles._header}>Чат</h6>
                 {message}
-                <div className={styles._containerGrid}>
-                    <div className={styles.msgInputBox}>
-                        <textarea value={newMsgBody} onChange={onNewMsgChange} placeholder="Написать сообщение..." />
-                    </div>
-                    <div className={styles.btnSendMsgBox}>
-                        <button className={styles.btnSendMsg} onClick={onSendMsgClick}>Send</button>
-                    </div>
-                </div>
+                <AddMsgFormRedux onSubmit={addNewMsg}/>
             </div>
         </div>
     );

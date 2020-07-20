@@ -74,6 +74,14 @@ html {
   display: grid;
 }
 
+
+h1 {
+  font-size: 7.2rem;
+  line-height: 1;
+  font-weight: 600;
+
+}
+
 h6 {
   font-size: 2rem;
   line-height: 1;

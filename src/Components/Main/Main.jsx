@@ -7,6 +7,7 @@ import ChatContainer from "./Chat/ChatContainer";
 import PublishPostContainer from "./PublishPost/PublishPostContainer";
 import UsersContainer from "./Users/UsersContainer";
 import UserCardContainer from "./UserCard/UserCardContainer";
+import LoginPage from "./Login/Login";
 
 const Main = (props) => {
     return (
@@ -18,7 +19,9 @@ const Main = (props) => {
                     </div>
                     <div className={styles._UserCardColumn}>
                         <Route path='/profile/:userId?' component={UserCardContainer}/>
-                        <Route path='/users' render={() => <UsersContainer/>} />
+                        <Route path='/users' render={ () => <UsersContainer/>} />
+                        <Route path='/login' render={ () => <LoginPage />} />
+
                     </div>
                     <div className={styles._NarrowColumn}>
                         <Route path='/dialogs' render={ () => <Dialogs store={props.store} dialogsData={props.state.messagesPage.dialogsData}/> } />
