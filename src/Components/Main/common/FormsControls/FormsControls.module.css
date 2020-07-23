@@ -6,7 +6,7 @@ input._error, textarea._error {
     display: block;
     grid-column: span 8;
     grid-row: span 1;
-    min-width: 100%;
+
     max-width: 100%;
     min-height: 5.2rem;
     max-height: 20rem;
@@ -23,4 +23,11 @@ input._error, textarea._error {
     font-size: 1.6rem;
     line-height: 1;
     color: red;
+}
+.formSummaryError {
+    border: 0.2rem solid red;
+    padding: 0.5rem;
+    color: red;
+    font-size: 1.6rem;
+    line-height: 2rem;
 }

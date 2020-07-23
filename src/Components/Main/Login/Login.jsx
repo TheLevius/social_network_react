@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Login.module.css';
+import styles2 from './../common/FormsControls/FormsControls.module.css';
 import {Field, reduxForm} from 'redux-form';
 import {Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../../utils/validators/validators";
@@ -19,6 +20,9 @@ const LoginForm = (props) => {
             <div>
                 <Field type={'checkbox'} name={'rememberMe'} component={Input} />remember me
             </div>
+            { props.error && <div className={styles2.formSummaryError}>
+                {props.error}
+            </div>}
             <div>
                 <button type={'submit'}>Login</button>
             </div>
@@ -26,7 +30,7 @@ const LoginForm = (props) => {
     );
 };
 
-const LoginReduxForm = reduxForm({form: 'Login'}) (LoginForm);
+const LoginReduxForm = reduxForm({form: 'login'}) (LoginForm);
 
 const Login = (props) => {
     const onSubmit = (formData) => {

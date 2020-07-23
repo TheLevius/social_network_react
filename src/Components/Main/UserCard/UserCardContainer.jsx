@@ -1,16 +1,21 @@
 import React from 'react';
 import UserCard from './UserCard';
 import {connect} from "react-redux";
-import {getStatus, getUserProfile, setUserProfile, updateStatus} from '../../../redux/profileReducer';
-import {Redirect, withRouter} from 'react-router-dom';
-import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+import {getStatus, getUserProfile, updateStatus} from '../../../redux/profileReducer';
+import {withRouter} from 'react-router-dom';
 import {compose} from "redux";
 
 class UserCardContainer extends React.Component {
 
     componentDidMount() {
         let userId = this.props.match.params.userId;
-        if(!userId) {userId = 8418}
+        if(!userId) {
+            userId = this.props.authorizedUserId
+            if (!userId) {
+                this.props.history.push('/login');
+            }
+        };
+
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
 
@@ -28,7 +33,9 @@ class UserCardContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
-    status: state.profilePage.status
+    status: state.profilePage.status,
+    authorizedUserId: state.auth.userId,
+    isAuth: state.auth.isAuth
 });
 
 export default compose(
