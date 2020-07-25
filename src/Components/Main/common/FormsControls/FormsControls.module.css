@@ -6,7 +6,6 @@ input._error, textarea._error {
     display: block;
     grid-column: span 8;
     grid-row: span 1;
-
     max-width: 100%;
     min-height: 5.2rem;
     max-height: 20rem;
@@ -19,6 +18,24 @@ input._error, textarea._error {
     letter-spacing: 0.05rem;
     overflow: hidden;
 }
+
+._formStyles {
+    display: inline-block;
+    margin: 0.4rem auto;
+    padding: 0.8rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    font: normal normal 1.4rem/2.1rem Roboto, Helvetica, Arial, sans-serif;
+    color: rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.05rem;
+    background-color: rgba(255, 240, 0, 0.1);
+    overflow: hidden;
+}
+
+._formMark {
+    padding-left: 0.4rem;
+    font: normal normal 1.4rem/2.1rem Roboto, Helvetica, Arial, sans-serif;
+}
+
 ._errorMsg {
     font-size: 1.6rem;
     line-height: 1;

@@ -5,7 +5,7 @@ import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../common/FormsControls/FormsControls";
 
-const PublishPost = (props) => {
+const PublishPost = React.memo((props) => {
 
     let posts = props.postData.map( el => <PostedCard message={el.message} likesCount={el.likesCount}/>);
 
@@ -25,7 +25,7 @@ const PublishPost = (props) => {
             </div>
         </div>
     );
-};
+});
 const maxLength = max => value => {
     debugger
     return value && value.length > max ? `Must be ${max} characters or less` : undefined

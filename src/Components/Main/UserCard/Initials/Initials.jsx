@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Initials.module.css";
-import UserStatus from "./UserStatus/UserStatus";
+import UserStatusWithHooks from "./UserStatus/UserStatusWithHooks";
 
-const Initials = (props) => {
+const Initials = ({status, updateStatus}) => {
     return (
       <div className="Initials block">
           <div className={styles._column}>
@@ -11,7 +11,7 @@ const Initials = (props) => {
               </div>
               <hr className={styles._sepLine} />
               <div className={styles._statusBox}>
-                  <UserStatus status={props.status} updateStatus={props.updateStatus}/>
+                  <UserStatusWithHooks status={status} updateStatus={updateStatus}/>
               </div>
           </div>
       </div>
