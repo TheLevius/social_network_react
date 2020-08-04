@@ -5,7 +5,7 @@ import User from "./User";
 const Users = ({currentPage, onPageChanged, totalUsersCount, pageSize, users, ...props}) => {
 
     return <div className="Users block">
-        <Paginator currentPage={currentPage} onPageChanged={onPageChanged} totalUsersCount={totalUsersCount}
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged} totalItemsCount={totalUsersCount}
                    pageSize={pageSize}/>
         <div>
             {
