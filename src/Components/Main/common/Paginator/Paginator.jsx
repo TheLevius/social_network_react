@@ -9,22 +9,21 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanged, porti
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-
     let portionCount = Math.ceil(pagesCount / portionSize);
     let [portionNumber, setPortionNumber] = useState(1);
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
-    let rightPortionPageNumber = portionNumber * portionSize
-
+    let rightPortionPageNumber = portionNumber * portionSize;
 
     return <div className={styles.paginator}>
         {portionNumber > 1 &&
-        <button onClick={ () => { setPortionNumber(portionNumber - 1)} }
+        <button onClick={ () => { setPortionNumber(portionNumber - 1) } }
         >Previus
         </button>}
 
         <div className={styles._pagePanel}>
+
             {pages
-                .filter(el => (el >= leftPortionPageNumber && rightPortionPageNumber))
+                .filter(el => (el >= leftPortionPageNumber && el <= rightPortionPageNumber))
                 .map(p => {
                     return <span className={ cn({[styles.selectedPage]: currentPage === p}, styles.pageNumber) }
                                  onClick={(e) => {onPageChanged(p)}}
