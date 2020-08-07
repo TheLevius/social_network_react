@@ -7,7 +7,7 @@ import {BrowserRouter} from "react-router-dom";
 
 const App = (props) => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div className="App">
                 <HeaderContainer />
                 <Main state={props.state} store={props.store} dispatch={props.dispatch} updateNewPostText={props.updateNewPostText}/>
@@ -17,3 +17,4 @@ const App = (props) => {
 }
 
 export default App;
+

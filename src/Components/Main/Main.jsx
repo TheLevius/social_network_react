@@ -3,17 +3,20 @@ import {Route, withRouter} from 'react-router-dom';
 import styles from './Main.module.css';
 import Navigation from "./Navigation/Navigation";
 import Dialogs from "./Dialogs/Dialogs";
-import ChatContainer from "./Chat/ChatContainer";
-import PublishPostContainer from "./PublishPost/PublishPostContainer";
 import UsersContainer from "./Users/UsersContainer";
-import UserCardContainer from "./UserCard/UserCardContainer";
 import LoginPage from "./Login/Login";
-
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initializeMain} from "../../redux/mainReducer";
 import Preloader from "./common/Preloader/Preloader";
+import {withSuspense} from "../../hoc/withSuspense";
 
+const UserCardContainer = React.lazy(() => import('./UserCard/UserCardContainer'));
+
+const PublishPostContainer = React.lazy(() => import('./PublishPost/PublishPostContainer'));
+// import PublishPostContainer from "./PublishPost/PublishPostContainer";
+const ChatContainer = React.lazy(() => import('./Chat/ChatContainer'));
+//import ChatContainer from "./Chat/ChatContainer";
 class Main extends React.Component {
     componentDidMount() {
         this.props.initializeMain();
@@ -31,7 +34,7 @@ class Main extends React.Component {
                             <Navigation/>
                         </div>
                         <div className={styles._UserCardColumn}>
-                            <Route path='/profile/:userId?' component={UserCardContainer}/>
+                            <Route path='/profile/:userId?' render={withSuspense(UserCardContainer)}/>
                             <Route path='/users' render={() => <UsersContainer/>}/>
                             <Route path='/login' render={() => <LoginPage/>}/>
 
@@ -42,15 +45,8 @@ class Main extends React.Component {
                         </div>
                         <div className={styles._WideColumn}>
                             <Route path='/dialogs'
-                                   render={() => <ChatContainer messagesPage={this.props.state.messagesPage}
-                                                                store={this.props.store}
-                                                                dispatch={this.props.dispatch}/>}/>
-                            <Route path='/profile' render={() => <PublishPostContainer
-                                postData={this.props.state.profilePage.postData}
-                                newPostText={this.props.state.profilePage.newPostText}
-                                dispatch={this.props.dispatch}
-                                store={this.props.store}
-                            />}/>
+                                   render={withSuspense(ChatContainer)}/>
+                            <Route path='/profile' render={withSuspense(PublishPostContainer)}/>
                         </div>
                     </div>
                 </div>
