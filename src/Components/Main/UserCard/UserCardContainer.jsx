@@ -1,13 +1,13 @@
 import React from 'react';
 import UserCard from './UserCard';
 import {connect} from "react-redux";
-import {getStatus, getUserProfile, updateStatus} from '../../../redux/profileReducer';
+import {getStatus, getUserProfile, savePhoto, updateStatus} from '../../../redux/profileReducer';
 import {withRouter} from 'react-router-dom';
 import {compose} from "redux";
 
 class UserCardContainer extends React.Component {
 
-    componentDidMount() {
+    refreshProfile() {
         let userId = this.props.match.params.userId;
         if(!userId) {
             userId = this.props.authorizedUserId
@@ -18,13 +18,30 @@ class UserCardContainer extends React.Component {
 
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
+    }
+
+    componentDidMount() {
+        this.refreshProfile();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.match.params.userId != prevProps.match.params.userId) {
+            this.refreshProfile();
+
+        }
 
     }
 
     render() {
         return (
             <div>
-                <UserCard {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus}/>
+                <UserCard {...this.props}
+                          isOwner={!this.props.match.params.userId}
+                          profile={this.props.profile}
+                          status={this.props.status}
+                          updateStatus={this.props.updateStatus}
+                          savePhoto={this.props.savePhoto}
+                />
             </div>
         );
     }
@@ -39,7 +56,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
+    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto}),
     withRouter
 ) (UserCardContainer);
 
