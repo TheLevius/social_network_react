@@ -7,7 +7,7 @@ import {Textarea} from "../common/FormsControls/FormsControls";
 
 const PublishPost = React.memo((props) => {
 
-    let posts = props.postData.map( el => <PostedCard message={el.message} likesCount={el.likesCount}/>);
+    let posts = props.postData.map( el => <PostedCard key={el.id} message={el.message} likesCount={el.likesCount}/>);
 
     let onAddPost = (values) => {
         props.addPost(values.newPostText);

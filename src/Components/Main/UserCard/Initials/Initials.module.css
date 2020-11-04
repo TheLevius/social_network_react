@@ -10,6 +10,31 @@
     letter-spacing: 0.05rem;
 }
 
+._jobstatus {
+    margin-bottom: 0.4rem;
+    font: normal 400 1.4rem/1.2 Roboto, Helvetica, Arial, sans-serif;
+}
+
+._aboutuser {
+    margin-bottom: 0.4rem;
+    font: normal 400 1.4rem/1.2 Roboto, Helvetica, Arial, sans-serif;
+}
+
+._contacts {
+    margin-bottom: 0.4rem;
+    font: normal 400 1.4rem/1.2 Roboto, Helvetica, Arial, sans-serif;
+}
+
+.editModeBtn {
+    margin-bottom: 0.4rem;
+    font: normal 400 1.2rem/1.2 Roboto, Helvetica, Arial, sans-serif;
+}
+
+.initialsDataForms {
+    margin-bottom: 0.4rem;
+    font: normal 400 2rem/1.2 Roboto, Helvetica, Arial, sans-serif;
+}
+
 ._sepLine {
     width: 100%;
     height: 0.2rem;

@@ -22,7 +22,8 @@ const AvatarPic = ({profile, isOwner, savePhoto}) => {
                      src={profile.photos.large || avatarPic}
                 />
             </div>
-            {isOwner && <input type={'file'} onChange={onMainPhotoSelected}/> }
+            {isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
+            {profile.lookingForAJob ? 'Yes': 'No'}
         </div>
     );
 }

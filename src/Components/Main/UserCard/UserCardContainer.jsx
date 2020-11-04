@@ -1,7 +1,7 @@
 import React from 'react';
 import UserCard from './UserCard';
 import {connect} from "react-redux";
-import {getStatus, getUserProfile, savePhoto, updateStatus} from '../../../redux/profileReducer';
+import {getStatus, getUserProfile, savePhoto, updateStatus, saveProfile} from '../../../redux/profileReducer';
 import {withRouter} from 'react-router-dom';
 import {compose} from "redux";
 
@@ -33,6 +33,7 @@ class UserCardContainer extends React.Component {
     }
 
     render() {
+
         return (
             <div>
                 <UserCard {...this.props}
@@ -56,7 +57,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto}),
+    connect(mapStateToProps, {getUserProfile, getStatus, updateStatus, savePhoto, saveProfile}),
     withRouter
 ) (UserCardContainer);
 
