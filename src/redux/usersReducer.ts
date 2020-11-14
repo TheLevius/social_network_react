@@ -34,22 +34,11 @@ const usersReducer = (state: InitialStateType = initialState, action: any):Initi
             return {
                 ...state,
                 users: updateObjectInArray(state.users, action.userId, 'id', {followed: true})
-                // users: state.users.map(u => {
-                //     if (u.id === action.userId) {
-                //         return {...u, followed: true}
-                //     }
-                //     return u;
-                // })
             };
         case UNFOLLOW:
             return {
                 ...state,
                 users: updateObjectInArray(state.users, action.userId, 'id', {followed: false})
-                // users: state.users.map( u => {
-                //     if(u.id === action.userId) {
-                //         return {...u, followed: false}
-                //     } return u;
-                // })
             };
         case SET_USERS:
             return {...state,
@@ -85,7 +74,6 @@ type FollowSuccessActionType = {
     type: typeof FOLLOW
     userId: number
 }
-
 export const followSuccess = (userId: number): FollowSuccessActionType => ({type: FOLLOW, userId});
 
 type UnfollowSuccessActionType = {
@@ -124,6 +112,7 @@ type ToggleFollowingProgressActionType = {
     userId: number
 }
 export const toggleFollowingProgress = (isFetching: boolean, userId: number): ToggleFollowingProgressActionType => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId});
+
 
 export const requestUsers = (page: number, pageSize: number) => {
 

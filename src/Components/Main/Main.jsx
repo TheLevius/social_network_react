@@ -45,7 +45,7 @@ class Main extends React.Component {
                         <div className={styles._UserCardColumn}>
                             <Route path='/' render={()=> <Redirect to={'/profile'}/>} />
                             <Route path='/profile/:userId?' render={withSuspense(UserCardContainer)}/>
-                            <Route path='/users' render={() => <UsersContainer/>}/>
+                            <Route path='/users' render={() => <UsersContainer pageTitile={'Самурай'}/>}/>
                             <Route path='/login' render={() => <LoginPage/>}/>
 
                         </div>
