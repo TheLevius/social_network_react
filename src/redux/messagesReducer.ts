@@ -1,6 +1,22 @@
 
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
+type CollocutorType = {
+    id: null | number
+    name: null | string
+}
+
+type MessageDataType = {
+    id: null | number
+    message: null | string
+    isSelf: boolean
+}
+
+type InitialStateType = {
+    dialogsData: Array<CollocutorType>
+    messagesData: Array<MessageDataType>
+}
+
 let initialState = {
     dialogsData: [
         {id: 1, name: 'Nikita'},
@@ -20,8 +36,8 @@ let initialState = {
     ]
 };
 
-const messagesReducer = (state = initialState, action) => {
-    let stateCopy;
+const messagesReducer = (state: InitialStateType = initialState, action: any):InitialStateType => {
+
     switch (action.type) {
 
         case SEND_MESSAGE:
@@ -35,6 +51,8 @@ const messagesReducer = (state = initialState, action) => {
     }
 };
 
-export const sendMessageCreator = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
+type SendMessageCreatorType = (newMessageBody: string) => ({type: typeof SEND_MESSAGE, newMessageBody: string})
+
+export const sendMessageCreator: SendMessageCreatorType = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
 
 export default messagesReducer;

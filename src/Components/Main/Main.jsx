@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, withRouter} from 'react-router-dom';
+import {Redirect, Route, withRouter} from 'react-router-dom';
 import styles from './Main.module.css';
 import Navigation from "./Navigation/Navigation";
 import Dialogs from "./Dialogs/Dialogs";
@@ -10,16 +10,25 @@ import {compose} from "redux";
 import {initializeMain} from "../../redux/mainReducer";
 import Preloader from "./common/Preloader/Preloader";
 import {withSuspense} from "../../hoc/withSuspense";
+import {func} from "prop-types";
 
 const UserCardContainer = React.lazy(() => import('./UserCard/UserCardContainer'));
-
 const PublishPostContainer = React.lazy(() => import('./PublishPost/PublishPostContainer'));
-// import PublishPostContainer from "./PublishPost/PublishPostContainer";
 const ChatContainer = React.lazy(() => import('./Chat/ChatContainer'));
-//import ChatContainer from "./Chat/ChatContainer";
+
 class Main extends React.Component {
+
+    catchAllUnhandledErrors = (reason, promise) => {
+        alert('some error occured');
+        // console.error(promiseRejectionEvent)
+    }
+
     componentDidMount() {
         this.props.initializeMain();
+        window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
+    }
+    componentWillUnmount() {
+        window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors)
     }
 
     render() {
@@ -34,6 +43,7 @@ class Main extends React.Component {
                             <Navigation/>
                         </div>
                         <div className={styles._UserCardColumn}>
+                            <Route path='/' render={()=> <Redirect to={'/profile'}/>} />
                             <Route path='/profile/:userId?' render={withSuspense(UserCardContainer)}/>
                             <Route path='/users' render={() => <UsersContainer/>}/>
                             <Route path='/login' render={() => <LoginPage/>}/>

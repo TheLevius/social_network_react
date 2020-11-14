@@ -1,5 +1,5 @@
 import React from "react";
-import {sendMessageCreator} from "./../../../redux/messagesReducer";
+import {sendMessageCreator} from "../../../redux/messagesReducer";
 import Chat from "./Chat";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
