@@ -3,6 +3,7 @@ import {addPostActionCreator} from "../../../redux/profileReducer";
 import PublishPost from "./PublishPost";
 import {connect} from "react-redux";
 
+
 const mapStateToProps = (state) => {
     return {
         postData: state.profilePage.postData,

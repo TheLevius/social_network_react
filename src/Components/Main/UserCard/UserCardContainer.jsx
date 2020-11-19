@@ -25,7 +25,7 @@ class UserCardContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.match.params.userId != prevProps.match.params.userId) {
+        if(this.props.match.params.userId !== prevProps.match.params.userId) {
             this.refreshProfile();
 
         }

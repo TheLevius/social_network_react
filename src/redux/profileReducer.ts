@@ -66,21 +66,18 @@ type AddPostActionCreatorActionType = {
     type: typeof ADD_POST
     newPostText: null | string
 }
-
-
 export const addPostActionCreator = (newPostText: string):AddPostActionCreatorActionType => ({type: ADD_POST, newPostText})
 
 type SetStatusType = {
     type: typeof SET_STATUS
     status: string
 }
-export const setStatus = (status: string) => ({type: SET_STATUS, status});
+export const setStatus = (status: string): SetStatusType => ({type: SET_STATUS, status});
 
 type DeletePostType = {
     type: typeof DELETE_POST
     postId: number
 }
-
 export const deletePost = (postId :number): DeletePostType => ({type: DELETE_POST, postId});
 
 type SetUserProfileType = {
@@ -93,7 +90,6 @@ type SavePhotoSuccessType = {
     type: typeof SAVE_PHOTO_SUCCESS
     photos: PhotosType
 }
-
 export const savePhotoSuccess = (photos: PhotosType): SavePhotoSuccessType => ({type: SAVE_PHOTO_SUCCESS, photos})
 
 export const getUserProfile = (userId: number) => async (dispatch: any) => {
