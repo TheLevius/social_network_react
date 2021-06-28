@@ -1,10 +1,19 @@
 import React from "react";
 import styles from "./Chat.module.css";
 import userpic from "./../../../img/jpg/avatar.jpg";
-import {Redirect} from "react-router-dom";
 import AddMsgFormRedux from "./AddMsgForm/AddMsgForm";
+import { InitialStateType } from "../../../redux/messagesReducer";
 
-const Chat = (props) => {
+type PropsType = {
+    messagesPage: InitialStateType
+    sendMessage: (msgText: string) => void
+}
+
+export type NewMsgFormValuesType = {
+    newMessageBody: string
+}
+
+const Chat: React.FC<PropsType> = (props) => {
     let state = props.messagesPage;
 
     let message = state.messagesData.map( (el)=> {
@@ -24,18 +33,16 @@ const Chat = (props) => {
         );
     });
 
-    let addNewMsg = (values) => {
-        props.sendMessage(values.newMsgBody);
+    let addNewMessage = (values: NewMsgFormValuesType) => {
+        props.sendMessage(values.newMessageBody);
     };
-
-    if(!props.isAuth) return <Redirect to={'/login'}/>;
 
     return (
         <div className="Chat block">
             <div className={styles._container}>
                 <h6 className={styles._header}>Чат</h6>
                 {message}
-                <AddMsgFormRedux onSubmit={addNewMsg}/>
+                <AddMsgFormRedux onSubmit={addNewMessage}/>
             </div>
         </div>
     );

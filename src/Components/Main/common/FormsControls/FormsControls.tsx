@@ -24,15 +24,17 @@ export const Textarea: React.FC<WrappedFieldProps> = (props) => {
         <textarea {...input} {...restProps} className={`${styles._textareaCell} ${meta.touched && meta.error ? styles._error : ''}`} />
     </FormControl>
 }
-export const Input: React.FC<WrappedFieldsProps> = (props) => {
+export const Input: React.FC<WrappedFieldProps> = (props) => {
     const {input, meta, ...restProps} = props;
-    return <input {...input} {...restProps} className={`${styles._formStyles} ${meta.touched && meta.error ? styles._error : ''}`} />
+    return <FormControl {...props}>
+    <input {...input} {...restProps} className={`${styles._formStyles} ${meta.touched && meta.error ? styles._error : ''}`} />
+    </FormControl>
 }
 
 export function createField <FormKeysType extends string> (placeholder: string | undefined,
                             name: FormKeysType,
                             validators: FieldValidatorType[],
-                            component: React.FC<WrappedFieldsProps>,
+                            component: React.FC<WrappedFieldProps>,
                             props = {},
                             text = '') {
     return (

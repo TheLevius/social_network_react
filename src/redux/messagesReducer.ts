@@ -1,20 +1,14 @@
+import {InferActionsTypes} from './reduxStore';
 
-const SEND_MESSAGE = 'SEND_MESSAGE';
-
-type CollocutorType = {
-    id: null | number
-    name: null | string
+type DialogType = {
+    id: number
+    name: string
 }
 
-type MessageDataType = {
-    id: null | number
-    message: null | string
+type MessageType = {
+    id: number
+    message: string
     isSelf: boolean
-}
-
-type InitialStateType = {
-    dialogsData: Array<CollocutorType>
-    messagesData: Array<MessageDataType>
 }
 
 let initialState = {
@@ -23,7 +17,7 @@ let initialState = {
         {id: 2, name: 'Vladimir'},
         {id: 3, name: 'Misha'},
         {id: 4, name: 'Sergey'},
-    ],
+    ] as DialogType[],
     messagesData: [
         {id: 1, message: 'Hi', isSelf: false},
         {id: 2, message: 'How is your it-kamasutra?', isSelf: true},
@@ -33,14 +27,14 @@ let initialState = {
         {id: 6, message: 'Hi', isSelf: true},
         {id: 6, message: 'dfsdf', isSelf: false},
         {id: 6, message: 'Hi', isSelf: true},
-    ]
+    ] as MessageType[],
 };
 
-const messagesReducer = (state: InitialStateType = initialState, action: any):InitialStateType => {
+const messagesReducer = (state: InitialStateType = initialState, action: ActionsType):InitialStateType => {
 
     switch (action.type) {
 
-        case SEND_MESSAGE:
+        case 'SN/MESSAGES/SEND_MESSAGE':
             let body = action.newMessageBody;
             return {
                 ...state,
@@ -51,8 +45,12 @@ const messagesReducer = (state: InitialStateType = initialState, action: any):In
     }
 };
 
-type SendMessageCreatorType = (newMessageBody: string) => ({type: typeof SEND_MESSAGE, newMessageBody: string})
+export const actions = {
+    sendMessage: (newMessageBody: string) => ({type: 'SN/MESSAGES/SEND_MESSAGE', newMessageBody} as const),
+}
 
-export const sendMessageCreator: SendMessageCreatorType = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody});
 
 export default messagesReducer;
+
+export type InitialStateType = typeof initialState;
+type ActionsType = InferActionsTypes<typeof actions>

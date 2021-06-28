@@ -10,15 +10,20 @@ import {compose} from "redux";
 import {initializeMain} from "../../redux/mainReducer";
 import Preloader from "./common/Preloader/Preloader";
 import {withSuspense} from "../../hoc/withSuspense";
-import {func} from "prop-types";
+import {AppStateType} from '../../redux/reduxStore';
 
 const UserCardContainer = React.lazy(() => import('./UserCard/UserCardContainer'));
 const PublishPostContainer = React.lazy(() => import('./PublishPost/PublishPostContainer'));
 const ChatContainer = React.lazy(() => import('./Chat/ChatContainer'));
 
-class Main extends React.Component {
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+    initializeMain: () => void
+}
 
-    catchAllUnhandledErrors = (reason, promise) => {
+class Main extends React.Component<MapPropsType & DispatchPropsType> {
+
+    catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
         alert('some error occured');
         // console.error(promiseRejectionEvent)
     }
@@ -45,12 +50,12 @@ class Main extends React.Component {
                         <div className={styles._UserCardColumn}>
                             <Route path='/' render={()=> <Redirect to={'/profile'}/>} />
                             <Route path='/profile/:userId?' render={withSuspense(UserCardContainer)}/>
-                            <Route path='/users' render={() => <UsersContainer pageTitile={'Самурай'}/>}/>
+                            <Route path='/users' render={() => <UsersContainer pageTitle={'Самурай'}/>}/>
                             <Route path='/login' render={() => <LoginPage/>}/>
 
                         </div>
                         <div className={styles._NarrowColumn}>
-                            <Route path='/dialogs' render={() => <Dialogs store={this.props.store}
+                            <Route path='/dialogs' render={(props) => <Dialogs store={this.props.state}
                                                                           dialogsData={this.props.state.messagesPage.dialogsData}/>}/>
                         </div>
                         <div className={styles._WideColumn}>
@@ -65,10 +70,12 @@ class Main extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    initialized: state.main.initialized
+const mapStateToProps = (state: AppStateType) => ({
+    initialized: state.main.initialized,
+    state: state
 });
 
-export default compose(
+
+export default compose<React.ComponentType>(
     withRouter,
     connect(mapStateToProps, {initializeMain})) (Main);

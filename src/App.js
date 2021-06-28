@@ -10,7 +10,7 @@ const App = (props) => {
         <HashRouter>
             <div className="App">
                 <HeaderContainer />
-                <Main state={props.state} store={props.store} dispatch={props.dispatch} updateNewPostText={props.updateNewPostText}/>
+                <Main state={props.state} store={props.store} dispatch={props.dispatch}/>
             </div>
         </HashRouter>
     );
