@@ -1,5 +1,5 @@
 import {FormAction, stopSubmit} from 'redux-form';
-import {PhotosType, ProfileType} from '../types/reduxTypes';
+import {PhotosType, PostType, ProfileType} from '../types/reduxTypes';
 import {profileAPI} from '../api/profile-api';
 import {ResultCodesEnum} from '../api/api';
 import {BaseThunkType, InferActionsTypes} from './reduxStore';
@@ -9,20 +9,18 @@ let initialState = {
         {id: 1, message: 'Hi, how are you?', likesCount: 12},
         {id: 2, message: 'It\'s, my first post', likesCount: 11},
         {id: 3, message: 'Hi, какой-то пост', likesCount: 15},
-    ],
+    ] as PostType[],
     profile: null as ProfileType | null,
-    status: '',
-    newPostText: '',
+    status: ''
 }
 
-const profileReducer = (state: InitialStateType = initialState, action: ActionsType) => {
+const profileReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
         case 'SN/PROFILE/ADD-POST': {
             let newPost = {id: 5, message: action.newPostText, likesCount: 0};
             return {
                 ...state,
-                postData: [...state.postData, newPost],
-                newPostText: ''
+                postData: [...state.postData, newPost]
             }
         }
         case 'SN/PROFILE/SET-STATUS': {
@@ -44,7 +42,7 @@ const profileReducer = (state: InitialStateType = initialState, action: ActionsT
         case 'SN/PROFILE/SAVE-PHOTO-SUCCESS':
             return {
                 ...state,
-                profile: {...state.profile, photos: action.photos}
+                profile: {...state.profile, photos: action.photos} as ProfileType
             }
         default:
             return state;

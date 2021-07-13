@@ -9,8 +9,7 @@ let state = {
         {id: 3, message: 'Hi, какой-то пост', likesCount: 15},
     ],
     profile: null,
-    status: '',
-    newPostText: '',
+    status: ''
 };
 
 it('length of postData should be incremented', () => {

@@ -1,0 +1,25 @@
+._containerGrid {
+    min-height: 25.7rem;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-column-gap: 1.6rem;
+    border-radius: 0 0 0.4rem 0.4rem;
+}
+
+.wallpaper {
+    background-image: url("../../img/wallpapers/white_gray_triangle.jpg");
+    background-position: center center;
+    background-size: 100% auto;
+}
+
+._AvatarCol {
+    align-self: center;
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 2;
+    text-align: center;
+}
+
+._initialsCol {
+    grid-column: 5 / span 4;
+    grid-row: 2 / 3;
+}
