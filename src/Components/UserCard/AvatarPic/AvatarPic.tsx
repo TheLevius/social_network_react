@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from "react";
 import styles from "./AvatarPic.module.css";
 import Preloader from "../../common/Preloader/Preloader";
-import avatarPic from '../../../img/jpg/avatar.jpg';
+import userPicByDefault from '../../../img/svg/user-pic-default.svg';
 import {ProfileType} from '../../../types/reduxTypes';
 
 type PropsType = {
@@ -26,7 +26,7 @@ const AvatarPic: React.FC<PropsType> = ({profile, isOwner, savePhoto}) => {
         <div className="AvatarPic block">
             <div className={`${styles._box} ${styles.userCard}`}>
                 <img className={styles._photo}
-                     src={profile.photos.large || avatarPic}
+                     src={profile.photos.large || userPicByDefault}
                 />
             </div>
             {isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
