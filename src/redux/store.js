@@ -43,10 +43,10 @@ let store = {
         return this._state;
     },
     subscribe(observer) {
-        this._callSubscriber = observer; // observer publisher-subscriber addEventListener
+        this._callSubscriber = observer;
     },
 
-    dispatch(action) {  // { type: 'ADD-POST' }
+    dispatch(action) {
 
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
@@ -54,10 +54,6 @@ let store = {
         this._callSubscriber(this._state);
     }
 }
-
-
-
-
 
 window.store = store;
 export default store;

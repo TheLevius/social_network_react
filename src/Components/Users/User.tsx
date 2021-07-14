@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Users.module.css';
-import avatarPic from '../../img/jpg/avatar.jpg';
+import userPicByDefault from '../../img/svg/user-pic-default.svg';
 import {NavLink} from "react-router-dom";
 import {UserType} from '../../types/reduxTypes';
 
@@ -19,7 +19,7 @@ const User: React.FC<PropsType> = ({user, followingInProgress, follow, unfollow}
                     <NavLink to={'/profile/' + user.id}>
                         <div className={styles._imgBox}>
                             <img className={styles._img} alt="faceAvatar"
-                                 src={user.photos.small !== null ? user.photos.small : avatarPic}/>
+                                 src={user.photos.small !== null ? user.photos.small : userPicByDefault}/>
                         </div>
                     </NavLink>
                     <div className={styles._followBtnBox}>

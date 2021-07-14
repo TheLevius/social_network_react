@@ -2,12 +2,15 @@
     font: normal normal 1.6rem/1 Roboto, Helvetica, Arial, sans-serif;
 }
 ._imgBox {
-    max-width: 24rem;
+    max-width: 12rem;
     height: auto;
 }
 ._img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
+    border: 0.4rem solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 1.2rem -0.4rem rgba(0, 0, 0, 0.3);
 }
 
 ._pagePanel {
