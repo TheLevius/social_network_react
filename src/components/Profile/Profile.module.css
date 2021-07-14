@@ -1,0 +1,26 @@
+._containerGrid {
+    min-height: 25.7rem;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-column-gap: 1.6rem;
+    border-radius: 0.4rem;
+}
+
+.wallpaper {
+    background-image: url("../../img/svg/profile-cover-default-light.svg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+._AvatarCol {
+    align-self: center;
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 2;
+    text-align: center;
+}
+
+._initialsCol {
+    grid-column: 5 / span 4;
+    grid-row: 2 / 3;
+}

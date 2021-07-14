@@ -1,0 +1,30 @@
+._wrapper {
+    width: 100%;
+    padding: 0.8rem 0;
+    background-color: #a2a8b3;
+    overflow: hidden;
+
+}
+
+._container {
+    max-width: 96rem;
+    margin: 0 auto;
+    padding: 0 0.8rem;
+    font-size: 0;
+    line-height: 0;
+    text-align: left;
+    overflow: inherit;
+}
+
+._loginBox {
+    padding: 0.8rem;
+    float: right;
+    font-size: 1.6rem;
+    line-height: 1;
+    font-weight: 500;
+    color: #fff;
+
+}
+._loginBox a {
+    color: #fff;
+}

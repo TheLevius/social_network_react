@@ -1,22 +1,22 @@
 import React from 'react';
 import './App.css';
 import styles from './App.module.css';
-import {HashRouter, Redirect, Route, withRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter, Redirect, Route, withRouter} from 'react-router-dom';
 import {connect, Provider} from 'react-redux';
 import store, {AppStateType} from './redux/reduxStore';
 import {compose} from 'redux';
 import {initializeApp} from './redux/appReducer';
-import Preloader from './Components/common/Preloader/Preloader';
-import Navigation from './Components/Navigation/Navigation';
+import Preloader from './components/common/Preloader/Preloader';
+import Navigation from './components/Navigation/Navigation';
 import {withSuspense} from './hoc/withSuspense';
-import UsersContainer from './Components/Users/UsersContainer';
-import LoginPage from './Components/Login/Login';
-import Dialogs from './Components/Dialogs/Dialogs';
-import HeaderContainer from './Components/Header/HeaderContainer';
+import {UsersPage} from './components/Users/UsersContainer';
+import {LoginPage} from './components/Login/Login';
+import Dialogs from './components/Dialogs/Dialogs';
+import HeaderContainer from './components/Header/HeaderContainer';
 
-const UserCardContainer = React.lazy(() => import('./Components/UserCard/UserCardContainer'));
-const MyPostsContainer = React.lazy(() => import('./Components/MyPosts/MyPostsContainer'));
-const ChatContainer = React.lazy(() => import('./Components/Chat/ChatContainer'));
+const UserCardContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
+const MyPostsContainer = React.lazy(() => import('./components/MyPosts/MyPostsContainer'));
+const ChatContainer = React.lazy(() => import('./components/Chat/ChatContainer'));
 
 type MapPropsType = ReturnType<typeof mapStateToProps>
 type DispatchPropsType = {
@@ -55,9 +55,9 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                                 <Navigation/>
                             </div>
                             <div className={styles._UserCardColumn}>
-                                <Route path='/' render={()=> <Redirect to={'/profile'}/>} />
+                                <Route path='/' exact render={()=> <Redirect to={'/profile'}/>} />
                                 <Route path='/profile/:userId?' render={()=> <SuspendedUserCard />}/>
-                                <Route path='/users' render={() => <UsersContainer pageTitle={'Самурай'}/>}/>
+                                <Route path='/users' render={() => <UsersPage pageTitle={'Самураи: '}/>}/>
                                 <Route path='/login' render={() => <LoginPage/>}/>
 
                             </div>

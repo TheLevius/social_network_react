@@ -1,0 +1,64 @@
+._container {
+    grid-column: span 6;
+    grid-row: span 1;
+}
+
+._box {
+    margin-bottom: 1.6rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 0 2px 1px rgba(150, 150, 150, 0.2);
+    background-color: rgba(255, 255, 255, 1);
+    overflow: hidden;
+}
+
+._header {
+    padding: 2rem 2.4rem 1.6rem;
+    background-color: rgba(162, 168, 179, 1);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1;
+    color: rgba(255, 255, 255, 1);
+}
+
+._containerGrid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-column-gap: 1.2rem;
+    grid-row-gap: 1.6rem;
+    margin-bottom: 1.6rem;
+    padding: 2.4rem;
+}
+
+._textareaCell {
+    display: block;
+    grid-column: span 8;
+    grid-row: span 1;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 5.2rem;
+    max-height: 20rem;
+    height: 5.2rem;
+    padding: 1.6rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 240, 0, 0.1);
+    font: normal normal 1.4rem/2.1rem Roboto, Helvetica, Arial, sans-serif;
+    color: rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.05rem;
+    overflow: hidden;
+}
+
+._textareaCell::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+._buttonPub {
+    display: block;
+    grid-column: 7 / span 2;
+    grid-row: span 1;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 0.4rem;
+    font: normal 400 1.4rem/1 Roboto, Helvetica, Arial, sans-serif;
+    background-color: rgba(31, 224, 185, 1);
+    color: rgba(255, 255, 255, 1);
+}
