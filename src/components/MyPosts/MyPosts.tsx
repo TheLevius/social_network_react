@@ -25,14 +25,15 @@ const MyPosts: React.FC<MapPropsType & DispatchPropsType> = (props) => {
     };
 
     return (
-
-        <div className="PublishPost block">
-            <div className={styles._container}>
-                <div className={styles._box}>
-                    <h6 className={styles._header}>Опубликовать пост</h6>
-                    <AddPostForm onSubmit={onAddPost} />
+        <div className={styles._WideColumn}>
+            <div className="PublishPost block">
+                <div className={styles._container}>
+                    <div className={styles._box}>
+                        <h6 className={styles._header}>Опубликовать пост</h6>
+                        <AddPostForm onSubmit={onAddPost}/>
+                    </div>
+                    {postsElements}
                 </div>
-                {postsElements}
             </div>
         </div>
     );

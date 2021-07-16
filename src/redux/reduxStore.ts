@@ -7,6 +7,7 @@ import authReducer from './authReducer';
 import thunkMiddleware, {ThunkAction} from 'redux-thunk';
 import {reducer as formReducer} from 'redux-form';
 import appReducer from "./appReducer";
+import chatReducer from './chatReducer';
 
 let rootReducers = combineReducers({
     profilePage: profileReducer,
@@ -15,6 +16,7 @@ let rootReducers = combineReducers({
     usersPage: usersReducer,
     auth: authReducer,
     form: formReducer,
+    chat: chatReducer,
     app: appReducer
 });
 

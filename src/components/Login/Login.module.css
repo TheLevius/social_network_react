@@ -11,3 +11,8 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+._ProfileColumn {
+    grid-column: span 10;
+    grid-row: span 1;
+}

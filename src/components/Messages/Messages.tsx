@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Chat.module.css";
+import styles from "./Messages.module.css";
 import userpic from "../../img/jpg/avatar.jpg";
 import AddMsgFormRedux from "./AddMsgForm/AddMsgForm";
 import { InitialStateType } from "../../redux/messagesReducer";
@@ -13,7 +13,7 @@ export type NewMsgFormValuesType = {
     newMessageBody: string
 }
 
-const Chat: React.FC<PropsType> = (props) => {
+export const Messages: React.FC<PropsType> = (props) => {
     let state = props.messagesPage;
 
     let message = state.messagesData.map( (el)=> {
@@ -47,5 +47,3 @@ const Chat: React.FC<PropsType> = (props) => {
         </div>
     );
 }
-
-export default Chat;

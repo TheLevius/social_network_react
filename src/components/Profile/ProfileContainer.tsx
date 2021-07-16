@@ -1,5 +1,6 @@
 import React from 'react';
 import {Profile} from './Profile';
+import styles from './Profile.module.css';
 import {connect} from 'react-redux';
 import {getStatus, getUserProfile, savePhoto, saveProfile, updateStatus} from '../../redux/profileReducer';
 import {RouteComponentProps, withRouter} from 'react-router-dom';
@@ -57,7 +58,7 @@ export class ProfileContainer extends React.Component<PropsType> {
     render() {
 
         return (
-            <div>
+            <div className={styles._ProfileColumn}>
                 <Profile {...this.props}
                          isOwner={!this.props.match.params.userId}
                          profile={this.props.profile}

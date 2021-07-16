@@ -2,8 +2,8 @@ import React from 'react';
 import {InjectedFormProps, reduxForm} from 'redux-form';
 import {createField, Textarea} from "../../common/FormsControls/FormsControls";
 import {required, maxLengthCreator} from "../../../utils/validators/validators";
-import styles from "../Chat.module.css";
-import {NewMsgFormValuesType} from '../Chat';
+import styles from "../Messages.module.css";
+import {NewMsgFormValuesType} from '../Messages';
 
 const maxLength50 = maxLengthCreator(50);
 

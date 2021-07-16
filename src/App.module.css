@@ -10,7 +10,7 @@
     margin: 0 auto;
     padding: 1.6rem;
     text-align: left;
-    font: normal normal 0/0 Roboto, "Helvetica", "Arial", sans-serif;
+    font-family: Roboto, sans-serif;
     background-color: rgba(237, 238, 240, 1);
     overflow: inherit;
     display: grid;
@@ -24,7 +24,7 @@
     grid-row: 1 / span 2;
 }
 
-._UserCardColumn {
+._ProfileColumn {
     grid-column: span 10;
     grid-row: span 1;
 }

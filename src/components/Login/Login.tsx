@@ -56,8 +56,12 @@ export const LoginPage: React.FC = (props) => {
         return <Redirect to={'/profile'}/>
     }
 
-    return <div className="Login block">
+    return(
+        <div className={styles._ProfileColumn}>
+        <div className="Login block">
         <h1>LOGIN</h1>
         <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl}/>
     </div>
+        </div>
+    )
 }
