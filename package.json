@@ -17,7 +17,7 @@
     "@types/react-test-renderer": "^17.0.1",
     "@types/uuid": "^8.3.1",
     "antd": "^4.16.7",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "formik": "^2.2.9",
     "gh-pages": "^2.2.0",
