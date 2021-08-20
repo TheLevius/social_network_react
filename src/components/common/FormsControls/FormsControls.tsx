@@ -10,9 +10,7 @@ const FormControl: React.FC<FormControlPropsType> = ({meta: {touched, error}, ch
     const hasError = touched && error;
     return(
         <div className={styles.formControl + ' ' + (hasError ? styles.error : '')}>
-            <div>
-                {children}
-            </div>
+            {children}
             {hasError && <span>{error}</span>}
         </div>
     )
@@ -38,7 +36,7 @@ export function createField <FormKeysType extends string> (placeholder: string |
                             props = {},
                             text = '') {
     return (
-        <div>
+        <div className={styles.fieldCell}>
             <Field placeholder={placeholder} name={name} component={component} validate={validators} {...props}/>
             {text ? <span className={styles._formMark}>{text}</span>: null}
         </div>

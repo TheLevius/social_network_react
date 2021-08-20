@@ -14,10 +14,8 @@ export const AddMsgForm: React.FC<InjectedFormProps<NewMsgFormValuesType, PropsT
 
     return (
         <form className={styles._containerGrid} onSubmit={props.handleSubmit}>
-            <div className={styles.msgInputBox}>
-                {createField<NewMsgFormValuesKeysType>('Enter your message', 'newMessageBody', [required, maxLength50], Textarea)}
-            </div>
-            <div className={styles.btnSendMsgBox}>
+            {createField<NewMsgFormValuesKeysType>('Enter your message', 'newMessageBody', [required, maxLength50], Textarea)}
+            <div className={"btnSendMsgBox"}>
                 <button className={styles.btnSendMsg}>Send</button>
             </div>
         </form>

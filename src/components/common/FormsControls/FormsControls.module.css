@@ -1,18 +1,24 @@
 input._error, textarea._error {
     border: 0.2rem solid #fb140c;
 }
+.fieldCell {
+    grid-column: span 8;
+}
+.formControl {
+    display: block;
+}
 
 ._textareaCell {
     display: block;
     grid-column: span 8;
     grid-row: span 1;
-    max-width: 100%;
+    width: 100%;
     min-height: 5.2rem;
     max-height: 20rem;
     height: 5.2rem;
     padding: 1.6rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 240, 0, 0.1);
+    background-color: rgba(59, 170, 54, 0.1);
     font: normal normal 1.4rem/2.1rem Roboto, Helvetica, Arial, sans-serif;
     color: rgba(0, 0, 0, 0.7);
     letter-spacing: 0.05rem;

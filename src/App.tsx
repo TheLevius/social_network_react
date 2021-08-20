@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import styles from './App.module.css';
 import 'antd/dist/antd.css';
-import {HashRouter, Redirect, Switch, Route, withRouter, NavLink, Link} from 'react-router-dom';
+import {HashRouter, Link, Redirect, Route, Switch, withRouter} from 'react-router-dom';
 import {connect, Provider} from 'react-redux';
 import store, {AppStateType} from './redux/reduxStore';
 import {compose} from 'redux';
@@ -12,9 +12,7 @@ import {withSuspense} from './hoc/withSuspense';
 import {UsersPage} from './components/Users/UsersContainer';
 import {LoginPage} from './components/Login/Login';
 import Dialogs from './components/Dialogs/Dialogs';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import {Button} from 'antd';
+import {Breadcrumb, Button, Layout, Menu} from 'antd';
 import {Header} from './components/Header/Header';
 
 
@@ -74,24 +72,10 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                                     // defaultOpenKeys={['sub1']}
                                     style={{ height: '100%' }}
                                 >
-                                    <SubMenu key="sub1" icon={<UserOutlined />} title={'My Profile'}>
                                         <Menu.Item key="1"><Link to='/profile'><span>Profile</span></Link></Menu.Item>
                                         <Menu.Item key="2"><Link to='/dialogs'><span>Messages</span></Link></Menu.Item>
-                                        <Menu.Item key="3">Option3</Menu.Item>
-                                        <Menu.Item key="4">option4</Menu.Item>
-                                    </SubMenu>
-                                    <SubMenu key="sub2" icon={<LaptopOutlined />} title={'Developers'}>
                                         <Menu.Item key="5"><Link to='/developers'><span>Developers</span></Link></Menu.Item>
-                                        <Menu.Item key="6">option6</Menu.Item>
-                                        <Menu.Item key="7">option7</Menu.Item>
-                                        <Menu.Item key="8">option8</Menu.Item>
-                                    </SubMenu>
-                                    <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
                                         <Menu.Item key="9"><Link to='/chat'><span>Chat</span></Link></Menu.Item>
-                                        <Menu.Item key="10">option10</Menu.Item>
-                                        <Menu.Item key="11">option11</Menu.Item>
-                                        <Menu.Item key="12">option12</Menu.Item>
-                                    </SubMenu>
                                 </Menu>
                             </Sider>
                             <Content style={{ padding: '0 24px', minHeight: 280 }}>
